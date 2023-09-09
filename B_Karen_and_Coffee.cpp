@@ -1,3 +1,5 @@
+//
+
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long 
@@ -243,10 +245,54 @@ vector<int> prime_factorisation (int a){
 }
 
 
-int main() {
-    // Write C++ code here
- // cout<<binary_search_invariant({2,4,5,7,8,10,20,34},25);
- vector<int>arr = {2,4,5,7,8,10,20,34};
-  cout<<*lower_bound(arr.begin(),arr.end(),20);
+int32_t main() {
+  int n,k,q;
+  cin>>n>>k>>q;
+
+  vector<int>diff(200001,0);
+
+
+
+
+  for(int i=0;i<n;i++){
+    int a,b;
+    cin>>a>>b;
+    diff[a]+=1;
+    diff[b+1]-=1;
+  }
+   vector<int>actual(200001,0);
+   int sum=0;
+   vector<int>v(200001,0);
+   for(int i=1;i<200001;i++ ){
+    sum+=diff[i];
+    if(sum>=k){
+    actual[i]=1;
+    }
+   }
+   sum=0;
+    for(int i=1;i<200001;i++){
+        sum+=actual[i];
+        v[i]=sum;
+    }
+   
+
+
+for(int i=0;i<q;i++){
+    int a,b;
+    cin>>a>>b;
+    int num=v[b]-v[a-1];
+    // for(int j=a;j<=b;j++){
+    //     //cout<<j<<" "<<actual[j]<<endl;
+    //     if(actual[j]>=k){
+    //         num++;
+    //     }
+    // }
+
+    cout<<num<<endl;
+}
+//91 92 93 94 95 96 97 98 99 
+
+//1  2  2  2  1  1  2  1  1
+//
 
 }
