@@ -341,9 +341,43 @@ vector<int> prime_factorisation (int a){
 
 
 int32_t main() {
-    // Write C++ code here
- // cout<<binary_search_invariant({2,4,5,7,8,10,20,34},25);
- vector<int>arr = {2,4,5,7,8,10,20,34};
-  cout<<*lower_bound(arr.begin(),arr.end(),20);
+ int n,q;
+ cin>>n>>q;
+ vector<int>v;
+ for(int i=0;i<n;i++){
+    int a;
+    cin>>a;
+    v.push_back(a);
+    //cout<<a<<endl;
+ }
+ vector<int>diff(n+1,0);
+ for(int i=0;i<q;i++){
+    int a;
+    int b;
+    cin>>a>>b;
+    a=a-1;
+    b=b-1;
+    diff[a]+=1;
+    diff[b+1]-=1;
 
+ }
+ //cout<<"OK";
+
+ // 00100-10
+ // 0011100
+vector<int>org;
+int sum=0;
+for(int i=0;i<n;i++){
+sum+=diff[i];
+org.push_back(sum);
+//cout<<sum<<endl;
+}
+
+sort(v.begin(),v.end());
+sort(org.begin(),org.end());
+int ans =0;
+for(int i=0;i<n;i++){
+ans+=org[i]*v[i];
+}
+cout<<ans;
 }
