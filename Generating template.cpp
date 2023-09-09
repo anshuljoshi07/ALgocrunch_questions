@@ -2,7 +2,16 @@
 using namespace std;
 #define int long long 
 
+vector<int> prefix_sum(vector<int>a){
+    int sum=0;
+    vector<int>ans;
+    for(int i=0;i<a.size();i++){
+        sum+=a[i];
+        ans.push_back(sum);
 
+    }
+    return sum;
+}
 
 void difference_array(){
 /*we'll look at a array whose prefix_sum array is given array A
@@ -13,12 +22,41 @@ constructed array (difference_array of A):- 2 1 2 2 2
 If we inc elements btw l,r by x in array what change will happen in diff array 
 NOTE:- lth elemeent inc by x and rth term dec by x
 
+imagine this to be orignal array whose A as above but its 2nd and 3rd elements are inc 2 4 6 7 9 
 
-2 4 6 7 9 
-2 2 2 1 2
+observe the changes in difference array :-2 2 2 1 2
+changes are :- A[l]+=1; A[r+1]-=1;
 
+Example code :-
+
+here btw range a and b is admissible values 
+
+ vector<int>diff(200001,0);
+
+
+
+
+  for(int i=0;i<n;i++){
+    int a,b;
+    cin>>a>>b;
+    diff[a]+=1;
+    diff[b+1]-=1;
+  }
+
+   vector<int>actual(200001,0);
+   int sum=0;
+   vector<int>v(200001,0);
+   for(int i=1;i<200001;i++ ){
+    sum+=diff[i];
+    actual[i]=1;
+   }
 
 */
+
+
+
+
+
 }
 
 
