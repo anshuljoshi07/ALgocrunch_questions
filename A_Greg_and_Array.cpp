@@ -1,121 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long 
-
-void dynamic_programming_2(){
-/*
-455/A
-1498/C
-
-
-
-
-
-
-
-*/
-
-
-
-}
-
-
-
-
-
-
-
-void dynamic_programming_1(){
-
-/*
-Dp is technique which allows to avoid repetitive computation
-
-We try to compensate the lesser time by taking a bit more space 
-
-Questions:- find min sum in 2d grid going down or right only
-Questions :- In a given array with positive and negative terms find subsequence where sum is max (2 methods)
-Method1 :- dp[i][0]->max sum with ith element included and dp[i][1]-> max sum without including ith element 
-Method2:- dp[i]->stores max sum till i irrespective of we include or not {
-    transition --->>
-
-    dp[i]=  max(arr[i]+dp[i+2], dp[i+1]);
-}
-
-Time complexity :- Number of states * transition time for each state
-Space :- number of states* space required for each state
-
-
-
-
-
-*/
-
-
-
-}
-
-
-
-
-
-
-
-void greedy_3(){
-
-/*
-
-JOB seq Problem 
-
-Given an array of jobs where every job has a deadline and associated profit
- if the job is finished before the deadline. It is also given that every job
-  takes a single unit of time, so the minimum possible deadline for any job is 1.
-   Maximize the total profit if only one job can be scheduled at a time.
-
-Examples: 
-
-Input:  Five Jobs with following deadlines and profits
-
-JobID   Deadline  Profit
-
-  a            2          100
-  b            1          19
-  c            2          27
- d            1          25
- e            3          15
-
-Output: Following is maximum profit sequence of jobs: c, a, e
-SOlution:-
-sort on basis of profit and place the highest profit position on rightmost possoible position 
-
-
-
-
-
-
-*/
-
-
-
-}
-
-
-
 void greedy_2(){
 /*
 
 ACTIVITY SELECTION PROBLEM
 
-You are given n activities with their start and finish times. Select the maximum 
-number of activities that can be performed by a single person, assuming that a 
-person can only work on a single activity at a time. 
 
-Examples:  
 
-Input: start[]  =  {10, 12, 20}, finish[] =  {20, 25, 30}
-Output: 0 2
 
-sort the finish time and then iterate over finish times each time check the start time to see 
-if this current event can take place considering prev event
+
+
+
+
 
 */
 
@@ -127,15 +24,16 @@ if this current event can take place considering prev event
 void greedy_1(){
     /*
     FRACTIONAL KNAPSACK PROBLEM
-    Given the weights and profits of N items, in the form of {profit, weight} put these items 
-    in a knapsack of capacity W to get the maximum total profit in the knapsack. In Fractional 
-    Knapsack, we can break items for maximizing the total value of the knapsack.
 
-    Input: arr[] = {{60, 10}, {100, 20}, {120, 30}}, W = 50
-    Output: 240 
     
-    Solution :- Try to find the profit/per wight metric and sort it accordingly ad then place the items in 
-    decreasing order
+    
+    
+    
+    
+
+    
+    
+    
     */
 }
 void greedy(){
@@ -443,9 +341,39 @@ vector<int> prime_factorisation (int a){
 
 
 int32_t main() {
-    // Write C++ code here
- // cout<<binary_search_invariant({2,4,5,7,8,10,20,34},25);
- vector<int>arr = {2,4,5,7,8,10,20,34};
-  cout<<*lower_bound(arr.begin(),arr.end(),20);
+    /*
+    4 3 6
+    4 elements in array
+    3 operations(inc all the elemnts btw l and r with value d)
+    6 querries
+
+    1 2 3 4 
+    2 3 3 4 
+    2 5 5 4
+    2 5 9 8
+    
+
+
+
+
+
+    
+    */
+int n,m,k;
+cin>>n>>m>>k;
+vector<int>v;
+for(int i=0;i<n;i++){
+    int a;
+    cin>>a;
+    v.push_back(a);
+}
+vector<int>diff(n,0);
+
+for(int i=0;i<m;i++){
+int l,r,d;
+cin>>l>>r>>d;
+diff[l]+=d;
+diff[r+1]-=d;
+}
 
 }
